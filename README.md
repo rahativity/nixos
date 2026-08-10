@@ -240,7 +240,7 @@ Then:
 ![NixOS Install Script Command](img/install-script.jpg)
 
 ```
-sh <(curl -L https://raw.githubusercontent.com/rezwanahmedratul/nixos/refs/heads/main/install-nixos.sh)
+sh <(curl -L https://raw.githubusercontent.com/rahativity/nixos/refs/heads/main/install-nixos.sh)
 ```
 
 #### The install process will look something like this:
