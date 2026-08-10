@@ -263,7 +263,7 @@ fi
 
 # Robust clone: retry a few times, prefer HTTP/1.1 to avoid HTTP/2 curl reset issues,
 # increase postBuffer for large transfers, and use an explicit $HOME path.
-REPO_URL="https://github.com/rezwanahmedratul/nixos.git"
+REPO_URL="https://github.com/rahativity/nixos.git"
 TARGET_DIR="$HOME/nixos"
 CLONE_ATTEMPTS=2
 CLONE_SUCCESS=false
