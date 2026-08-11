@@ -73,9 +73,9 @@ in {
       nwg-displays # configure monitor configs via GUI
       rustc
       cargo
-      google-chrome # Google Chrome Browser
-      docker # Docker For Containerization
-      docker-compose # Docker Compose For Containerization
+      #google-chrome # Google Chrome Browser
+      #docker # Docker For Containerization
+      #docker-compose # Docker Compose For Containerization
       #nwg-dock-hyprland # Dock for hyprland
       #nwg-menu # App menu for waybar
       onefetch # provides zsaneyos build info on current system
@@ -108,13 +108,13 @@ in {
       slurp
       hyprpicker
       tesseract
-      gnome-calculator
+      #gnome-calculator
       coreutils
       gnugrep
       gawk
       procps
       qimgv
       azuredatastudio
-      distrobox
+      #distrobox
     ];
 }
