@@ -1,15 +1,14 @@
 {pkgs, ...}: {
   # Only enable either docker or podman -- Not both
   virtualisation = {
-  
     containers.registries.search = [
       "docker.io"
       "quay.io"
       "ghcr.io"
-      ];
+    ];
 
     docker = {
-      enable = false;
+      enable = true;
     };
 
     podman.enable = true;
