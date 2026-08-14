@@ -15,6 +15,13 @@
   # `none` to disable power management
   powerManager = "tlp";
 
+  # TLP Power Profiles (only used when powerManager = "tlp")
+  # Set ONE to true and the OTHER to false
+  # 🐒 Luffy Mode  = Balanced — full CPU power on battery when you need it
+  # 🦌 Chopper Mode = Battery Saver — max 50% CPU, no boost, cool & quiet
+  luffyMode = false;
+  chopperMode = true;
+
   # Emable/disable bundled applications
   tmuxEnable = true; # Terminal Multiplexer
   alacrittyEnable = true;
