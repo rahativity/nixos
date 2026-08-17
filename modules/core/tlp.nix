@@ -26,14 +26,14 @@ in {
       CPU_DRIVER_OPMODE_ON_BAT = "active";
 
       # CPU governor
-      CPU_SCALING_GOVERNOR_ON_AC = "performance";
+      CPU_SCALING_GOVERNOR_ON_AC = "balance_performance";
       CPU_SCALING_GOVERNOR_ON_BAT = "powersave";
 
       # Energy perf policy
       CPU_ENERGY_PERF_POLICY_ON_AC =
         if luffy
-        then "performance"
-        else "balance_performance";
+        then "balance_performance"
+        else "balance_power";
       CPU_ENERGY_PERF_POLICY_ON_BAT =
         if luffy
         then "balance_power"
@@ -49,14 +49,20 @@ in {
         else 50;
 
       # Boost
-      CPU_BOOST_ON_AC = 1;
+      CPU_BOOST_ON_AC =
+        if luffy
+        then 1
+        else 0;
       CPU_BOOST_ON_BAT =
         if luffy
         then 1
         else 0;
 
       # Platform profile
-      PLATFORM_PROFILE_ON_AC = "performance";
+      PLATFORM_PROFILE_ON_AC =
+        if luffy
+        then "balanced"
+        else "low-power";
       PLATFORM_PROFILE_ON_BAT =
         if luffy
         then "balanced"
@@ -95,10 +101,12 @@ in {
 
       # USB Autosuspend
       USB_AUTOSUSPEND = 1;
+      USB_EXCLUDE_BTUSB = 1;
+      USB_DENYLIST = "0e8d:223c";
 
       # Devices
       DEVICES_TO_ENABLE_ON_STARTUP = "wifi bluetooth";
-      DEVICES_TO_DISABLE_ON_BAT_NOT_IN_USE = "bluetooth nfc wwan";
+      DEVICES_TO_DISABLE_ON_BAT_NOT_IN_USE = "nfc wwan";
     };
   };
 }

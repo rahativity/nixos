@@ -13,7 +13,7 @@
   # `auto-cpufreq` for desktops (more aggressive performance)
   # `ppd` for power-profiles-daemon (more aggressive performance)
   # `none` to disable power management
-  powerManager = "tlp";
+  powerManager = "auto-cpufreq";
 
   # TLP Power Profiles (only used when powerManager = "tlp")
   # Set ONE to true and the OTHER to false

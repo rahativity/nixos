@@ -117,5 +117,7 @@ in {
       azuredatastudio
       #distrobox
       android-tools
+      nodejs
+      
     ];
 }
