@@ -33,7 +33,7 @@
     update.onActivation = false;
     update.auto = {
       enable = true;
-      onCalendar = "daily";
+      onCalendar = "daily"; # Runs updates daily via systemd timer
     };
   };
 }
