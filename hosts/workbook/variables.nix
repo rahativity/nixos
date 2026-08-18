@@ -9,18 +9,11 @@
   # SDDM background is set with stylixImage
   displayManager = "tui";
   # Set Power Manager
-  # `tlp` for laptops (default)
-  # `auto-cpufreq` for desktops (more aggressive performance)
-  # `ppd` for power-profiles-daemon (more aggressive performance)
+  # `tlp` for laptops (intelligent adaptive power management: AC performance / Battery efficiency)
+  # `auto-cpufreq` for desktops
+  # `ppd` for power-profiles-daemon
   # `none` to disable power management
-  powerManager = "auto-cpufreq";
-
-  # TLP Power Profiles (only used when powerManager = "tlp")
-  # Set ONE to true and the OTHER to false
-  # 🐒 Luffy Mode  = Balanced — full CPU power on battery when you need it
-  # 🦌 Chopper Mode = Battery Saver — max 50% CPU, no boost, cool & quiet
-  luffyMode = false;
-  chopperMode = true;
+  powerManager = "tlp";
 
   # Emable/disable bundled applications
   tmuxEnable = true; # Terminal Multiplexer

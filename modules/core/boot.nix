@@ -10,6 +10,10 @@
     extraModprobeConfig = ''
       options btusb enable_autosuspend=0
     '';
+    kernelParams = [
+      "amd_pstate=active" # Ensure AMD P-State active/autonomous mode
+      "pcie_aspm.policy=default" # ASPM managed by TLP per AC/BAT
+    ];
     kernel.sysctl = {"vm.max_map_count" = 2147483642;};
     loader.systemd-boot.enable = true;
     loader.efi.canTouchEfiVariables = true;
