@@ -30,6 +30,10 @@
       "io.github.C_Yassin.FlameGet"
     ];
 
-    update.onActivation = true;
+    update.onActivation = false;
+    update.auto = {
+      enable = true;
+      onCalendar = "daily";
+    };
   };
 }
