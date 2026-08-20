@@ -50,7 +50,7 @@ in {
     ++ noctaliaPkgs
     ++ [
       alejandra # nix formatter
-      appimage-run # Needed For AppImage Support
+      #appimage-run # Needed For AppImage Support
       brave # Brave Browser
       brightnessctl # For Screen Brightness Control
       duf # Utility For Viewing Disk Usage In Terminal
@@ -58,7 +58,7 @@ in {
       eza # Beautiful ls Replacement
       ffmpeg # Terminal Video / Audio Editing
       file-roller # Archive Manager
-      gearlever # Manage / run Appimages
+      #gearlever # Manage / run Appimages
       icu # dep for gearlever
       gpu-screen-recorder # needed for nnoctalia-shell
       mesa-demos # needed for inxi diag util
@@ -94,8 +94,8 @@ in {
       python3 # Python 3 programming language
       telegram-desktop
       nautilus
-      freerdp
-      kdePackages.krdc
+      #freerdp
+      #kdePackages.krdc
       kdePackages.okular
       localsend
       gcc
@@ -118,6 +118,6 @@ in {
       #distrobox
       android-tools
       nodejs
-      
+      waydroid
     ];
 }
