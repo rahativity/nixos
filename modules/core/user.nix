@@ -27,6 +27,7 @@ in {
   users.users.${username} = {
     isNormalUser = true;
     description = "${gitUsername}";
+    linger = true; # Starts PipeWire/WirePlumber at boot so audio endpoints are ready when earbuds connect
     extraGroups = [
       "adbusers"
       "docker" #access to docker as non-root

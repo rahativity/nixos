@@ -15,7 +15,7 @@
       settings = {
         General = {
           Experimental = true; # Battery level reporting
-          FastConnectable = false; # Prevents page scan firmware lockups on MT7922
+          FastConnectable = true; # Fast page scan for quick earbud reconnect on case open
           JustWorksRepairing = "always";
           MultiProfile = "multiple";
         };
