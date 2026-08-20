@@ -59,6 +59,46 @@
           }
         ];
       };
+      wireplumber.extraConfig = {
+        "10-bluetooth" = {
+          "monitor.bluez.properties" = {
+            "bluez5.codecs" = ["sbc" "aac"];
+            "bluez5.enable-sbc-xq" = false;
+            "bluez5.enable-msbc" = true;
+            "bluez5.enable-hw-volume" = true;
+            "bluez5.roles" = ["a2dp_source" "hsp_ag" "hfp_ag"];
+          };
+          "monitor.bluez.rules" = [
+            {
+              matches = [
+                {
+                  "node.name" = "~bluez_output.*";
+                }
+              ];
+              actions = {
+                update-props = {
+                  "session.suspend-timeout-seconds" = 0;
+                };
+              };
+            }
+            {
+              matches = [
+                {
+                  "node.name" = "~bluez_input.*";
+                }
+              ];
+              actions = {
+                update-props = {
+                  "session.suspend-timeout-seconds" = 0;
+                };
+              };
+            }
+          ];
+          "wireplumber.settings" = {
+            "bluetooth.autoswitch-to-headset-profile" = false;
+          };
+        };
+      };
     };
   };
 }

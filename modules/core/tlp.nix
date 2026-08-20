@@ -96,6 +96,7 @@
       # 'auto' allows idle devices to enter low-power states.
       RUNTIME_PM_ON_AC = "auto";
       RUNTIME_PM_ON_BAT = "auto";
+      RUNTIME_PM_DENYLIST = "01:00.0"; # MediaTek MT7922 Wi-Fi/BT PCIe adapter
 
       # ── NVMe Power Management (APST) ─────────────────────────────────
       # Autonomous Power State Transitions — saves 0.5-1W on battery.
@@ -114,14 +115,14 @@
       SOUND_POWER_SAVE_CONTROLLER = "Y";
 
       # ── Network / Wi-Fi Power Management (MediaTek MT7921/MT7922) ────
-      # AC: Disabled for maximum throughput and lowest latency.
-      # BAT: Enabled for radio power conservation (~0.3W savings).
+      # Keep off on both AC and BAT to prevent 2.4GHz coexistence dropouts with Bluetooth
       WIFI_PWR_ON_AC = "off";
-      WIFI_PWR_ON_BAT = "on";
+      WIFI_PWR_ON_BAT = "off";
 
       # ── USB Autosuspend ──────────────────────────────────────────────
       USB_AUTOSUSPEND = 1;
       USB_EXCLUDE_BTUSB = 1; # Exclude Bluetooth controllers — prevents connection drops
+      USB_DENYLIST = "0e8d:223c"; # MediaTek MT7922 Bluetooth USB controller
 
       # ── Peripheral Startup & Battery Power Cut ───────────────────────
       DEVICES_TO_ENABLE_ON_STARTUP = "wifi bluetooth";
