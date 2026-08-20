@@ -48,9 +48,9 @@ in {
       ./xserver.nix
       ./cachix.nix
       ./fingerprint.nix
-      ./shadowsocks.nix
+      #./shadowsocks.nix
       #./smb.nix
-      ./limit.nix
+      #./limit.nix
       inputs.stylix.nixosModules.stylix
     ];
 }
