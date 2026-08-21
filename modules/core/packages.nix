@@ -94,8 +94,8 @@ in {
       python3 # Python 3 programming language
       telegram-desktop
       nautilus
-      #freerdp
-      #kdePackages.krdc
+      freerdp
+      kdePackages.krdc
       kdePackages.okular
       localsend
       gcc
@@ -118,6 +118,6 @@ in {
       #distrobox
       android-tools
       nodejs
-      waydroid
+      #waydroid
     ];
 }

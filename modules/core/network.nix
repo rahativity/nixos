@@ -13,6 +13,7 @@ in {
     timeServers = options.networking.timeServers.default ++ ["pool.ntp.org"];
     firewall = {
       enable = true;
+      checkReversePath = "loose"; # Required for Tailscale
       allowedTCPPorts = [
         22
         80
