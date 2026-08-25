@@ -1,4 +1,4 @@
-{pkgs, ...}: {
+{ pkgs, ... }: {
   xdg.portal = {
     enable = true;
 
@@ -6,6 +6,7 @@
       xdg-desktop-portal-hyprland
       xdg-desktop-portal-gtk
     ];
+
 
     config = {
       hyprland = {
@@ -17,17 +18,17 @@
       };
     };
 
-    configPackages = [pkgs.hyprland];
+    configPackages =[pkgs.hyprland];
   };
 
   services.flatpak = {
     enable = true;
 
-    packages = [
+    packages =[
       "com.rustdesk.RustDesk"
       "com.usebottles.bottles"
       "com.github.tchx84.Flatseal"
-      "io.github.C_Yassin.FlameGet"
+      #"io.github.C_Yassin.FlameGet"
     ];
 
     update.onActivation = false;
