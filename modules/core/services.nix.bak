@@ -8,6 +8,7 @@
     #howdy.enable = true; # For Touchpad Gestures
     #mako.enable = true;
     cloudflare-warp.enable = true;
+    tailscale.enable = true; # Tailscale VPN daemon
 
 
     openssh = {

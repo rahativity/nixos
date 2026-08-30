@@ -10,16 +10,10 @@ in {
     hostName = "${host}";
     hostId = hostId;
     networkmanager.enable = true;
-    nameservers = [
-      "1.1.1.1"
-      "1.0.0.1"
-      "8.8.8.8"
-      "8.8.4.4"
-    ];
     timeServers = options.networking.timeServers.default ++ ["pool.ntp.org"];
     firewall = {
       enable = true;
-      checkReversePath = true; # Default strict RPF (no longer need loose for Tailscale)
+      checkReversePath = "loose"; # Required for Tailscale
       allowedTCPPorts = [
         22
         80
