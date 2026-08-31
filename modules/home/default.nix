@@ -51,7 +51,6 @@ in {
       ./rofi
       ./qt.nix
       ./scripts
-      ./scripts/gemini-cli.nix
       ./stylix.nix
       ./swappy.nix
       ./swaync.nix
