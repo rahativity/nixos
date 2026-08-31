@@ -7,7 +7,7 @@
     gvfs.enable = true; # For Mounting USB & More
     #howdy.enable = true; # For Touchpad Gestures
     #mako.enable = true;
-    cloudflare-warp.enable = true;
+    cloudflare-warp.enable = false;
 
 
     openssh = {

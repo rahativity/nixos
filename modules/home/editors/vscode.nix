@@ -134,7 +134,7 @@ in {
       extensions =
         (with pkgs.vscode-extensions; [
           catppuccin.catppuccin-vsc
-          bbenoist.nix
+          jnoortheen.nix-ide
           kamadorueda.alejandra
           jeff-hykin.better-nix-syntax
           mads-hartmann.bash-ide-vscode
