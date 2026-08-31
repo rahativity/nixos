@@ -3,20 +3,23 @@
   pkgs,
   host,
   ...
-}: let
+}:
+let
   vars = import ../../hosts/${host}/variables.nix;
   inherit (vars) barChoice;
   # Noctalia-specific packages
   noctaliaPkgs =
-    if barChoice == "noctalia"
-    then
-      with pkgs; [
+    if barChoice == "noctalia" then
+      with pkgs;
+      [
         matugen # color palette generator needed for noctalia-shell
         #app2unit # launcher for noctalia-shell
         gpu-screen-recorder # needed for nnoctalia-shell
       ]
-    else [];
-in {
+    else
+      [ ];
+in
+{
   programs = {
     neovim = {
       enable = true;
@@ -40,9 +43,10 @@ in {
   };
 
   nixpkgs.config.allowUnfree = true;
-  nixpkgs.config.permittedInsecurePackages = ["openssl-1.1.1w"];
+  nixpkgs.config.permittedInsecurePackages = [ "openssl-1.1.1w" ];
 
-  environment.systemPackages = with pkgs;
+  environment.systemPackages =
+    with pkgs;
     [
       awww
       inputs.synfetch.packages.${pkgs.stdenv.hostPlatform.system}.default
@@ -119,5 +123,6 @@ in {
       android-tools
       nodejs
       #waydroid
+      qbittorrent
     ];
 }
