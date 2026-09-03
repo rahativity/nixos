@@ -25,8 +25,8 @@
     enable = true;
 
     packages =[
-      "com.rustdesk.RustDesk"
-      "com.usebottles.bottles"
+      #"com.rustdesk.RustDesk"
+      #"com.usebottles.bottles"
       "com.github.tchx84.Flatseal"
       #"io.github.C_Yassin.FlameGet"
     ];

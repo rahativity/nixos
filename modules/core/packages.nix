@@ -118,6 +118,8 @@ in
       gawk
       procps
       qimgv
+      webp-pixbuf-loader # WebP support for GTK file picker thumbnails
+      shared-mime-info # Proper MIME type detection for thumbnails
       azuredatastudio
       #distrobox
       android-tools

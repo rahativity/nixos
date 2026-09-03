@@ -52,6 +52,7 @@ in {
       ./qt.nix
       ./scripts
       ./stylix.nix
+      ./editt.nix
       ./swappy.nix
       ./swaync.nix
       ./tealdeer.nix
