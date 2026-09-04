@@ -18,6 +18,7 @@
       "$modifier ALT,P, Noctalia Settings, exec, noctalia msg settings-toggle"
       "$modifier SHIFT,comma, Noctalia Settings, exec, noctalia msg settings-toggle"
       "$modifier CTRL,L, Noctalia Lock Screen, exec,  noctalia msg session lock"
+      "$modifier ALT, I, Noctalia Lock and Suspend, exec,  noctalia msg session lock-and-suspend"
       "$modifier SHIFT,W, Noctalia Wallpaper, exec, noctalia msg panel-toggle wallpaper"
       "$modifier,P, Noctalia Power Menu, exec,  noctalia msg panel-toggle session"
       "$modifier,C, Noctalia Control Center, exec,  noctalia msg panel-toggle control-center"
@@ -31,6 +32,7 @@
     then [
       "$modifier,D, Rofi Launcher, exec, rofi-launcher"
       "$modifier SHIFT,Return, Rofi Launcher, exec, rofi-launcher"
+      "$modifier ALT, I, Lock and Suspend, exec,  hyprlock & sleep 0.5; systemctl suspend"
     ]
     else [
       #"ALT,SPACE, Rofi Launcher, exec, rofi -show drun"
