@@ -9,11 +9,11 @@
 in {
   home.packages =
     [
-      #customPkgs.ab-download-manager
+      #customPkgs.ab-download-manager # Download manager
     ]
     ++ (with pkgs; [
-      #pangolin-cli
-      #obsidian
-      code-cursor
+      #pangolin-cli # Pangolin reverse proxy client CLI
+      #obsidian # Markdown note-taking and knowledge base app
+      code-cursor # AI-powered code editor
     ]);
 }

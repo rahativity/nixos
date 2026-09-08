@@ -168,16 +168,19 @@ in {
         "ALT,Tab, Cycle Next Window, cyclenext"
         "ALT,Tab, Bring Active To Top, bringactivetotop"
         # ============= MEDIA & HARDWARE CONTROLS =============
-        ",XF86AudioRaiseVolume, Volume Up, exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+"
-        ",XF86AudioLowerVolume, Volume Down, exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-"
         " ,XF86AudioMute, Mute Toggle, exec, wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"
         ",XF86AudioPlay, Play Pause, exec, playerctl play-pause"
         ",XF86AudioPause, Play Pause, exec, playerctl play-pause"
         ",XF86AudioNext, Next Track, exec, playerctl next"
         ",XF86AudioPrev, Previous Track, exec, playerctl previous"
-        ",XF86MonBrightnessDown, Brightness Down, exec, brightnessctl set 1%-"
-        ",XF86MonBrightnessUp, Brightness Up, exec, brightnessctl set +1%"
       ];
+
+    bindel = [
+      ",XF86MonBrightnessDown, exec, brightnessctl set 1%-"
+      ",XF86MonBrightnessUp, exec, brightnessctl set +1%"
+      ",XF86AudioRaiseVolume, exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+"
+      ",XF86AudioLowerVolume, exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-"
+    ];
 
     bindm = [
       "$modifier, mouse:272, movewindow"

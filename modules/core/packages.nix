@@ -31,11 +31,11 @@ in
       enable = true; # set this so desktop file is created
       withUWSM = false;
     };
-    dconf.enable = true;
-    seahorse.enable = true;
-    fuse.userAllowOther = true;
-    mtr.enable = true;
-    hyprlock.enable = true;
+    dconf.enable = true; # GNOME configuration database system
+    seahorse.enable = true; # GNOME GUI for managing encryption keys and passwords
+    fuse.userAllowOther = true; # Allow non-root users to access FUSE mounts
+    mtr.enable = true; # Network diagnostic tool (traceroute + ping)
+    hyprlock.enable = true; # Hyprland screen locker
     gnupg.agent = {
       enable = true;
       enableSSHSupport = true;
@@ -48,8 +48,8 @@ in
   environment.systemPackages =
     with pkgs;
     [
-      awww
-      inputs.synfetch.packages.${pkgs.stdenv.hostPlatform.system}.default
+      awww # Animated/efficient wallpaper daemon for Wayland
+      inputs.synfetch.packages.${pkgs.stdenv.hostPlatform.system}.default # Fast system information fetch tool
     ]
     ++ noctaliaPkgs
     ++ [
@@ -75,8 +75,8 @@ in
       mpv # Incredible Video Player
       nixfmt # Nix Formatter
       nwg-displays # configure monitor configs via GUI
-      rustc
-      cargo
+      rustc # Rust compiler
+      cargo # Rust package manager and build tool
       #google-chrome # Google Chrome Browser
       docker # Docker For Containerization
       docker-compose # Docker Compose For Containerization
@@ -96,35 +96,36 @@ in
       waypaper # Change wallpaper
       wget # Tool For Fetching Files With Links
       python3 # Python 3 programming language
-      telegram-desktop
-      nautilus
-      freerdp
-      kdePackages.krdc
-      kdePackages.okular
-      localsend
-      gcc
-      gdb
-      cmake
-      gnumake
-      libreoffice
-      typst
-      jq
-      slurp
-      hyprpicker
-      tesseract
-      #gnome-calculator
-      coreutils
-      gnugrep
-      gawk
-      procps
-      qimgv
+      telegram-desktop # Telegram messaging client
+      nautilus # GNOME file manager
+      freerdp # Remote Desktop Protocol (RDP) client
+      kdePackages.krdc # KDE Remote Desktop Client (VNC and RDP)
+      kdePackages.okular # Universal document and PDF viewer
+      localsend # Local network file sharing tool
+      gcc # GNU Compiler Collection (C/C++)
+      gdb # GNU Project Debugger
+      cmake # Cross-platform build system generator
+      gnumake # GNU Make build automation tool
+      libreoffice # Office productivity suite
+      typst # Modern markup-based typesetting system
+      jq # Command-line JSON processor
+      slurp # Wayland screen region selector
+      hyprpicker # Wayland color picker
+      tesseract # Optical character recognition (OCR) engine
+      #gnome-calculator # GNOME desktop calculator
+      coreutils # Basic GNU file, shell, and text utilities
+      gnugrep # GNU grep pattern searching tool
+      gawk # GNU awk pattern scanning and processing language
+      procps # Process monitoring utilities (ps, top, free, etc.)
+      qimgv # Fast image viewer with video support
       webp-pixbuf-loader # WebP support for GTK file picker thumbnails
       shared-mime-info # Proper MIME type detection for thumbnails
-      azuredatastudio
-      #distrobox
-      android-tools
-      nodejs
-      #waydroid
-      qbittorrent
+      azuredatastudio # Data management and SQL editor
+      #distrobox # Run containerized Linux distributions
+      android-tools # Android debugging and fastboot utilities
+      nodejs # JavaScript runtime environment
+      #waydroid # Android container for Linux
+      qbittorrent # BitTorrent client
+      guvcview # GTK webcam capture and viewing tool
     ];
 }
