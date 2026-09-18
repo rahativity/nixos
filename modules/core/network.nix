@@ -3,9 +3,11 @@
   host,
   options,
   ...
-}: let
+}:
+let
   inherit (import ../../hosts/${host}/variables.nix) hostId;
-in {
+in
+{
   networking = {
     hostName = "${host}";
     hostId = hostId;
@@ -16,10 +18,11 @@ in {
       "8.8.8.8"
       "8.8.4.4"
     ];
-    timeServers = options.networking.timeServers.default ++ ["pool.ntp.org"];
+    timeServers = options.networking.timeServers.default ++ [ "pool.ntp.org" ];
     firewall = {
       enable = true;
-      checkReversePath = true; # Default strict RPF (no longer need loose for Tailscale)
+      checkReversePath = "loose"; # Required for Tailscale
+      trustedInterfaces = [ "tailscale0" ];
       allowedTCPPorts = [
         22
         80
@@ -35,6 +38,6 @@ in {
     };
   };
 
-  environment.systemPackages = with pkgs; [networkmanagerapplet];
+  environment.systemPackages = with pkgs; [ networkmanagerapplet ];
   systemd.services.NetworkManager-wait-online.enable = false;
 }
