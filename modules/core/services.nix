@@ -1,4 +1,4 @@
-{profile, ...}: {
+{ profile, ... }: {
   # Services to start
   services = {
     upower.enable = true; # noctalia shell battery
@@ -10,15 +10,14 @@
     cloudflare-warp.enable = false;
     tailscale.enable = true; # Tailscale VPN daemon
 
-
     openssh = {
       enable = true; # Enable SSH
       settings = {
         PermitRootLogin = "no"; # Prevent root from SSH login
-        PasswordAuthentication = true; #Users can SSH using kb and password
+        PasswordAuthentication = true; # Users can SSH using kb and password
         KbdInteractiveAuthentication = true;
       };
-      ports = [22];
+      ports = [ 22 ];
     };
 
     blueman.enable = true; # Bluetooth Support
@@ -26,10 +25,7 @@
     gnome.gnome-keyring.enable = true;
 
     smartd = {
-      enable =
-        if profile == "vm"
-        then false
-        else true;
+      enable = if profile == "vm" then false else true;
       autodetect = true;
     };
     pipewire = {
@@ -63,11 +59,18 @@
       wireplumber.extraConfig = {
         "10-bluetooth" = {
           "monitor.bluez.properties" = {
-            "bluez5.codecs" = ["sbc" "aac"];
+            "bluez5.codecs" = [
+              "sbc"
+              "aac"
+            ];
             "bluez5.enable-sbc-xq" = false;
             "bluez5.enable-msbc" = true;
             "bluez5.enable-hw-volume" = true;
-            "bluez5.roles" = ["a2dp_source" "hsp_ag" "hfp_ag"];
+            "bluez5.roles" = [
+              "a2dp_source"
+              "hsp_ag"
+              "hfp_ag"
+            ];
           };
           "monitor.bluez.rules" = [
             {
