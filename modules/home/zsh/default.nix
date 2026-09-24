@@ -12,7 +12,10 @@
   programs.zsh = {
     enable = true;
     dotDir = config.home.homeDirectory;
-    autosuggestion.enable = true;
+    autosuggestion = {
+      enable = true;
+      highlight = "fg=#bac2de";
+    };
     syntaxHighlighting = {
       enable = true;
       highlighters = ["main" "brackets" "pattern" "regexp" "root" "line"];

@@ -1,4 +1,4 @@
-{pkgs, ...}: {
+{ pkgs, ... }: {
   # Only enable either docker or podman -- Not both
   virtualisation = {
     containers.registries.settings = {
@@ -10,7 +10,7 @@
     };
 
     docker = {
-      enable = false;
+      enable = true;
     };
 
     podman.enable = true;
