@@ -310,6 +310,38 @@ in {
           "}"
         ],
         "description": "Competitive programming single main template"
+      },
+
+      "Competitive Programming Template": {
+        "prefix": "cpr",
+        "body": [
+          "#include <bits/stdc++.h>",
+          "using namespace std;",
+          "#define show cout<<",
+          "#define take cin>>",
+          "#define ll long long",
+          "#define vi vector<int>",
+          "#define vll vector<long long>",
+          "#define pb push_back",
+          "#define all(x) (x).begin(), (x).end()",
+          "",
+          "void solve() {",
+          "    $0",
+          "}",
+          "",
+          "int main() {",
+          "    ios_base::sync_with_stdio(false);",
+          "    cin.tie(nullptr);",
+          "",
+          "    int t=1;",
+          "    //cin >> t;",
+          "    while (t--) {",
+          "        solve();",
+          "    }",
+          "    return 0;",
+          "}"
+        ],
+        "description": "Competitive programming C++ template"
       }
     }
   '';
