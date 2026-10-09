@@ -7,8 +7,8 @@
     gvfs.enable = true; # For Mounting USB & More
     #howdy.enable = true; # For Touchpad Gestures
     #mako.enable = true;
-    cloudflare-warp.enable = false;
-    tailscale.enable = true; # Tailscale VPN daemon
+    cloudflare-warp.enable = true;
+    tailscale.enable = false;
 
     openssh = {
       enable = true; # Enable SSH
