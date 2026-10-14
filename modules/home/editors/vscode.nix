@@ -189,6 +189,31 @@ in {
         "java.debug.settings.console" = "integratedTerminal";
         "code-runner.runInTerminal" = true;
         "code-runner.saveFileBeforeRun" = true;
+        "code-runner.clearPreviousOutput" = false;
+        "code-runner.preserveFocus" = false;
+        "code-runner.fileDirectoryAsCwd" = false;
+        "code-runner.showRunIconInEditorTitleMenu" = true;
+        "code-runner.executorMap" = {
+          "c" = "cd $dir && gcc $fileName -o $fileNameWithoutExt && ./$fileNameWithoutExt";
+          "cpp" = "cd $dir && g++ -std=c++17 $fileName -o $fileNameWithoutExt && ./$fileNameWithoutExt";
+        };
+
+        # Disable C_Cpp run shortcut so the Play button in editor title always triggers Code Runner
+        "C_Cpp.debugShortcut" = false;
+
+        # Prevent VS Code from downloading unpatched marketplace extensions that break on NixOS
+        "extensions.autoUpdate" = false;
+        "extensions.autoCheckUpdates" = false;
+
+        # Competitive Programming Helper (CPH) settings
+        "cph.language.cpp.Command" = "g++";
+        "cph.language.cpp.Args" = "-std=c++17 -O2";
+
+        # C/C++ IntelliSense for NixOS
+        "C_Cpp.default.compilerPath" = "/run/current-system/sw/bin/g++";
+        "C_Cpp.default.cppStandard" = "c++17";
+        "C_Cpp.default.cStandard" = "c17";
+        "C_Cpp.intelliSenseEngine" = "default";
 
         "chat.disableAIFeatures" = false;
         "files.autoSave" = "afterDelay";
@@ -208,6 +233,7 @@ in {
 
         "workbench.activityBar.compact" = "true";
 
+        "terminal.integrated.defaultProfile.linux" = "zsh";
         "terminal.integrated.profiles.linux" = {
           "bash" = {
             "path" = "bash";
@@ -215,7 +241,7 @@ in {
           };
 
           "zsh" = {
-            "path" = "/etc/profiles/per-user/ratul/bin/zsh";
+            "path" = "zsh";
           };
 
           "fish" = {
@@ -235,6 +261,16 @@ in {
       };
     };
   };
+
+  # Fix: copy cpptools from nix store to writable dir so fs.chmod 755 does not fail with EROFS
+  home.activation.fixCpptoolsPermissions = lib.hm.dag.entryAfter ["writeBoundary"] ''
+    if [ -L "$HOME/.vscode/extensions/ms-vscode.cpptools" ]; then
+      target=$(readlink -f "$HOME/.vscode/extensions/ms-vscode.cpptools")
+      $DRY_RUN_CMD rm -f "$HOME/.vscode/extensions/ms-vscode.cpptools"
+      $DRY_RUN_CMD cp -rL "$target" "$HOME/.vscode/extensions/ms-vscode.cpptools"
+      $DRY_RUN_CMD chmod -R u+w "$HOME/.vscode/extensions/ms-vscode.cpptools"
+    fi
+  '';
 
   # Java runtime (IMPORTANT)
   home.packages = with pkgs; [

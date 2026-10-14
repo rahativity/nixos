@@ -147,6 +147,25 @@ in {
         "java.debug.settings.console" = "integratedTerminal";
         "code-runner.runInTerminal" = true;
         "code-runner.saveFileBeforeRun" = true;
+        "code-runner.clearPreviousOutput" = false;
+        "code-runner.preserveFocus" = false;
+        "code-runner.fileDirectoryAsCwd" = false;
+        "code-runner.showRunIconInEditorTitleMenu" = true;
+        "code-runner.executorMap" = {
+          "c" = "cd $dir && gcc $fileName -o $fileNameWithoutExt && ./$fileNameWithoutExt";
+          "cpp" = "cd $dir && g++ -std=c++17 $fileName -o $fileNameWithoutExt && ./$fileNameWithoutExt";
+        };
+
+        # Disable C_Cpp run shortcut so the Play button in editor title always triggers Code Runner
+        "C_Cpp.debugShortcut" = false;
+
+        # Extensions
+        "extensions.autoUpdate" = false;
+        "extensions.autoCheckUpdates" = false;
+
+        # Competitive Programming Helper (CPH) settings
+        "cph.language.cpp.Command" = "g++";
+        "cph.language.cpp.Args" = "-std=c++17 -O2";
 
         "files.autoSave" = "afterDelay";
         "files.autoSaveDelay" = 1000;
@@ -166,13 +185,14 @@ in {
         # Codeium keybinding (optional, default is Ctrl+Shift+L for chat)
         #"codeium.enableTabAutocomplete" = true;
 
+        "terminal.integrated.defaultProfile.linux" = "zsh";
         "terminal.integrated.profiles.linux" = {
           "bash" = {
             "path" = "bash";
             "icon" = "terminal-bash";
           };
           "zsh" = {
-            "path" = "/etc/profiles/per-user/ratul/bin/zsh";
+            "path" = "zsh";
           };
           "fish" = {
             "path" = "fish";

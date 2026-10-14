@@ -416,7 +416,7 @@
         "animationDisabled": false,
         "animationSpeed": 1,
         "autoStartAuth": true,
-        "avatarImage": "/home/ratul/.face",
+        "avatarImage": "/home/rahat/.face",
         "boxRadiusRatio": 1,
         "clockFormat": "hh\\nmm",
         "clockStyle": "custom",
@@ -702,7 +702,7 @@
     },
     "wallpaper": {
         "automationEnabled": false,
-        "directory": "/home/ratul/Pictures/Wallpapers",
+        "directory": "/home/rahat/Pictures/Wallpapers",
         "enableMultiMonitorDirectories": false,
         "enabled": true,
         "favorites": [
