@@ -20,7 +20,7 @@
       package = pkgs.waydroid-nftables;
     };
 
-    podman.enable = true;
+    podman.enable = false;
 
     libvirtd = {
       enable = true;
