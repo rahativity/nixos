@@ -1,51 +1,56 @@
-{zaneyos, ...}: let
-  inherit
-    (zaneyos)
+{ zaneyos, ... }:
+let
+  inherit (zaneyos)
     barChoice
     browser
     terminal
     ;
   # Noctalia-specific bindings (only included when barChoice == "noctalia")
   noctaliaBind =
-    if barChoice == "noctalia"
-    then [
-      "ALT,SPACE, Noctalia Launcher, exec, noctalia msg panel-toggle launcher"
-      "$modifier SHIFT,Return, Noctalia Launcher, exec, noctalia msg panel-toggle launcher"
-      "$modifier,M, Noctalia Notifications, exec, noctalia msg panel-toggle control-center notifications"
-      "$modifier CTRL,V, Noctalia Clipboard, exec, noctalia msg panel-toggle clipboard"
-      "$modifier ALT,P, Noctalia Settings, exec, noctalia msg settings-toggle"
-      "$modifier SHIFT,comma, Noctalia Settings, exec, noctalia msg settings-toggle"
-      "$modifier, L, Noctalia Lock Screen, exec, noctalia msg session lock"
-      "$modifier SHIFT,W, Noctalia Wallpaper, exec, noctalia msg panel-toggle wallpaper"
-      "$modifier,P, Noctalia Power Menu, exec, noctalia msg panel-toggle session"
-      "$modifier,C, Noctalia Control Center, exec, noctalia msg panel-toggle control-center"
-      "$modifier ALT,S, Noctalia Screenshot Region, exec, noctalia msg screenshot-region"
-      "$modifier SHIFT,R, Restart Noctalia shell, exec, restart.noctalia"
-    ]
-    else [];
+    if barChoice == "noctalia" then
+      [
+        "ALT,SPACE, Noctalia Launcher, exec, noctalia msg panel-toggle launcher"
+        "$modifier SHIFT,Return, Noctalia Launcher, exec, noctalia msg panel-toggle launcher"
+        "$modifier,M, Noctalia Notifications, exec, noctalia msg panel-toggle control-center notifications"
+        "$modifier CTRL,V, Noctalia Clipboard, exec, noctalia msg panel-toggle clipboard"
+        "$modifier ALT,P, Noctalia Settings, exec, noctalia msg settings-toggle"
+        "$modifier SHIFT,comma, Noctalia Settings, exec, noctalia msg settings-toggle"
+        "$modifier, L, Noctalia Lock Screen, exec, noctalia msg session lock"
+        "$modifier SHIFT,W, Noctalia Wallpaper, exec, noctalia msg panel-toggle wallpaper"
+        "$modifier,P, Noctalia Power Menu, exec, noctalia msg panel-toggle session"
+        "$modifier,C, Noctalia Control Center, exec, noctalia msg panel-toggle control-center"
+        "$modifier ALT,S, Noctalia Screenshot Region, exec, noctalia msg screenshot-region"
+        "$modifier SHIFT,R, Restart Noctalia shell, exec, restart.noctalia"
+      ]
+    else
+      [ ];
   # Rofi launcher bindings (only included when barChoice != "noctalia")
   rofiBind =
-    if barChoice != "noctalia"
-    then [
-      "$modifier,D, Rofi Launcher, exec, rofi-launcher"
-      "$modifier SHIFT,Return, Rofi Launcher, exec, rofi-launcher"
-    ]
-    else [];
+    if barChoice != "noctalia" then
+      [
+        "$modifier,D, Rofi Launcher, exec, rofi-launcher"
+        "$modifier SHIFT,Return, Rofi Launcher, exec, rofi-launcher"
+      ]
+    else
+      [ ];
   # Rofi clipboard binding (only included when barChoice != "noctalia")
   rofiClipboardBind =
-    if barChoice != "noctalia"
-    then [
-      "$modifier,V, Clipboard History, exec, cliphist list | rofi -dmenu | cliphist decode | wl-copy"
-    ]
-    else [];
+    if barChoice != "noctalia" then
+      [
+        "$modifier,V, Clipboard History, exec, cliphist list | rofi -dmenu | cliphist decode | wl-copy"
+      ]
+    else
+      [ ];
   # Wallpaper binding (only included when barChoice != "noctalia")
   wallpaperBind =
-    if barChoice != "noctalia"
-    then [
-      "$modifier SHIFT,W, QS Wallpaper Setter, exec, qs-wallpapers-apply"
-    ]
-    else [];
-in {
+    if barChoice != "noctalia" then
+      [
+        "$modifier SHIFT,W, QS Wallpaper Setter, exec, qs-wallpapers-apply"
+      ]
+    else
+      [ ];
+in
+{
   wayland.windowManager.hyprland.settings = {
     bindd =
       noctaliaBind
@@ -87,7 +92,7 @@ in {
 
         "$modifier CTRL,R, Screen Recorder, exec, screenrecord"
         "$modifier,O, OBS Studio, exec, obs"
-        
+
         "$modifier ALT,C, Color Picker, exec, hyprpicker -a"
         "$modifier,G, GIMP, exec, gimp"
         "$modifier SHIFT,T, Dropdown Terminal, exec, sh -lc 'DropTerminal'"
