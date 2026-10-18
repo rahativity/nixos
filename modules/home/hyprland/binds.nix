@@ -89,7 +89,6 @@ in {
         "$modifier,O, OBS Studio, exec, obs"
         
         "$modifier ALT,C, Color Picker, exec, hyprpicker -a"
-        "$modifier SHIFT,V, Toggle Screen Vibrance, exec, hyprland-toggle-vibrance"
         "$modifier,G, GIMP, exec, gimp"
         "$modifier SHIFT,T, Dropdown Terminal, exec, sh -lc 'DropTerminal'"
         "$modifier,T, Thunar, exec, thunar"

@@ -12,6 +12,7 @@ in {
   };
 
   config = mkIf cfg.enable {
+    boot.kernelParams = ["amdgpu.abmlevel=0"];
     systemd.tmpfiles.rules = ["L+    /opt/rocm/hip   -    -    -     -    ${pkgs.rocmPackages.clr}"];
     services.xserver.videoDrivers = ["amdgpu"];
   };

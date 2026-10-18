@@ -114,7 +114,6 @@ in
     };
     ".face.icon".source = ./face.jpg;
     ".config/face.jpg".source = ./face.jpg;
-    ".config/hypr/shaders/vibrance.glsl".source = ./shaders/vibrance.glsl;
   };
   wayland.windowManager.hyprland = {
     configType = "lua";

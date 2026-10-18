@@ -132,7 +132,6 @@ hl.config({
       render_power = 3,
       color = "rgba(1a1a1aee)",
     },
-    screen_shader = (os.getenv("HOME") or "") .. "/.config/hypr/shaders/vibrance.glsl",
   },
 })
 
@@ -156,6 +155,7 @@ hl.config({
 hl.config({
   render = {
     direct_scanout = 0,
+    cm_enabled = false,
   },
 })
 
