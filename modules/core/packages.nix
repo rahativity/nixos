@@ -3,18 +3,21 @@
   pkgs,
   host,
   ...
-}: let
+}:
+let
   vars = import ../../hosts/${host}/variables.nix;
   inherit (vars) barChoice;
   # Noctalia-specific packages
   noctaliaPkgs =
-    if barChoice == "noctalia"
-    then
-      with pkgs; [
+    if barChoice == "noctalia" then
+      with pkgs;
+      [
         matugen # color palette generator needed for noctalia-shell
       ]
-    else [];
-in {
+    else
+      [ ];
+in
+{
   programs = {
     neovim = {
       enable = true;
@@ -38,9 +41,10 @@ in {
   };
 
   nixpkgs.config.allowUnfree = true;
-  nixpkgs.config.permittedInsecurePackages = ["openssl-1.1.1w"];
+  nixpkgs.config.permittedInsecurePackages = [ "openssl-1.1.1w" ];
 
-  environment.systemPackages = with pkgs;
+  environment.systemPackages =
+    with pkgs;
     [
       awww
       inputs.synfetch.packages.${pkgs.stdenv.hostPlatform.system}.default
@@ -71,7 +75,7 @@ in {
       nwg-displays # configure monitor configs via GUI
       rustc
       cargo
-      #google-chrome # Google Chrome Browser
+      google-chrome # Google Chrome Browser
       docker # Docker For Containerization
       docker-compose # Docker Compose For Containerization
       #nwg-dock-hyprland # Dock for hyprland
@@ -106,7 +110,7 @@ in {
       slurp
       hyprpicker
       tesseract
-      gnome-calculator
+      #gnome-calculator
       coreutils
       gnugrep
       gawk
@@ -117,6 +121,6 @@ in {
       #spice-gtk
       #arduino-cli
       #virt-viewer
-      #azuredatastudio
+      azuredatastudio
     ];
 }
