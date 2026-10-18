@@ -1,4 +1,4 @@
-[English](README.md) | [Español](README.es.md)
+[English](README.md)
 
 <div align="center">
 
@@ -60,7 +60,7 @@ This includes the wallpaper, scripts, applications, config files, and more.
 #### 🍖 Requirements
 
 - You must be running on NixOS, version 24.05+.
-- The `zaneyos` folder (this repo) is expected to be in your home directory.
+- The `nixos` repository folder is located in your home directory (`~/nixos`). A `~/zaneyos` symlink is automatically created for backward compatibility.
 - You must have installed NIXOS using **GPT** parition with booting with
   **UEFI**.
 - ** 500MB minimum /boot partition required. **
@@ -214,10 +214,7 @@ _Available when `barChoice = "waybar"` in `variables.nix`_
 
 ## Installation:
 
-> **⚠️ IMPORTANT:** These installation methods are for **NEW INSTALLATIONS
-> ONLY**. If you already have ZaneyOS installed and want to upgrade to v2.4, see
-> the [Upgrade Instructions](#upgrading-from-zaneyos-23-to-24) below. Note:
-> There is an issue with upgrade script. It's been removed until it's fixed.
+> **⚠️ IMPORTANT:** This installation script is designed for a **post-installation setup on an existing NixOS system** (version 24.05+ with UEFI & systemd-boot). Run this from your normal user account after booting into your fresh NixOS install — **do not run this from a live installer USB**.
 
 <details>
 <summary><strong> ⬇️ Install with script (NEW INSTALLATIONS ONLY)</strong></summary>
@@ -230,9 +227,9 @@ that you can in the flake or help you install extra packages. It is simply here
 so you can get my configuration installed with as little chances of breakages
 and then fiddle to your hearts content!
 
-> **⚠️ WARNING:** This script will completely replace any existing ~/zaneyos
-> directory. Do NOT use this if you already have ZaneyOS installed and
-> configured.
+> **⚠️ WARNING:** This script will replace any existing ~/nixos directory. If
+> found, a backup of your previous configuration is saved to
+> ~/.config/nixos-backups/.
 
 Simply copy this and run it:
 

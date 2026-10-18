@@ -3,8 +3,12 @@ pkgs.writeShellScriptBin "cheatsheets-parser" ''
     #!/usr/bin/env bash
     set -euo pipefail
 
-    # Default paths (ported to ZaneyOS repo location)
-    CHEATSHEETS_DIR="$HOME/zaneyos/cheatsheets"
+    # Default paths (check ~/nixos first, fallback to ~/zaneyos)
+    if [[ -d "$HOME/nixos/cheatsheets" ]]; then
+      CHEATSHEETS_DIR="$HOME/nixos/cheatsheets"
+    else
+      CHEATSHEETS_DIR="$HOME/zaneyos/cheatsheets"
+    fi
 
     # Handle arguments
     MODE="''${1:-files}"

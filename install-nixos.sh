@@ -6,6 +6,13 @@
 # Date: June 27, 2005
 #######################################
 
+# Check for root execution
+if [ "$EUID" -eq 0 ]; then
+  echo -e "\033[0;31mError: Please do not run this script as root or with sudo.\033[0m"
+  echo -e "Run it as your standard user account. Sudo will be requested when needed.\033[0m"
+  exit 1
+fi
+
 # Define colors
 RED='\033[0;31m'
 GREEN='\033[0;32m'
@@ -337,6 +344,11 @@ fi
 
 cd "$TARGET_DIR" || { print_error "Could not change directory to $TARGET_DIR"; exit 1; }
 
+# Ensure legacy $HOME/zaneyos path points to $HOME/nixos
+if [ ! -e "$HOME/zaneyos" ]; then
+  ln -s "$TARGET_DIR" "$HOME/zaneyos"
+fi
+
 
 print_header "Git Configuration"
 echo "👤 Setting up git configuration for version control:"
@@ -519,6 +531,7 @@ git config --global --unset-all user.email
 
 print_header "Generating Hardware Configuration -- Ignore ERROR: cannot access /bin"
 sudo nixos-generate-config --show-hardware-config >./hosts/$hostName/hardware.nix
+git add ./hosts/$hostName/hardware.nix
 
 print_header "Setting Nix Configuration"
 NIX_CONFIG="experimental-features = nix-command flakes"

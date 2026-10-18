@@ -47,12 +47,17 @@ pkgs.writeShellScriptBin "qs-cheatsheets" ''
       esac
     done
 
+    CHEATSHEETS_DIR="$HOME/nixos/cheatsheets"
+    if [[ ! -d "$CHEATSHEETS_DIR" ]]; then
+      CHEATSHEETS_DIR="$HOME/zaneyos/cheatsheets"
+    fi
+
     # Validate category (dynamically check if directory exists or is "root")
-    if [[ "$CATEGORY" != "root" && ! -d "$HOME/zaneyos/cheatsheets/$CATEGORY" ]]; then
+    if [[ "$CATEGORY" != "root" && ! -d "$CHEATSHEETS_DIR/$CATEGORY" ]]; then
       echo "Error: Category directory '$CATEGORY' not found in cheatsheets/" >&2
       echo "Available categories:" >&2
       echo "  root" >&2
-      ls -1 "$HOME/zaneyos/cheatsheets/" | grep -E '^[a-z]' | head -10 >&2
+      ls -1 "$CHEATSHEETS_DIR/" | grep -E '^[a-z]' | head -10 >&2
       exit 1
     fi
 
@@ -129,8 +134,8 @@ pkgs.writeShellScriptBin "qs-cheatsheets" ''
     done
 
     # Then dynamically discover all category directories
-    if [ -d "$HOME/zaneyos/cheatsheets" ]; then
-      for category_dir in "$HOME/zaneyos/cheatsheets"/*/; do
+    if [ -d "$CHEATSHEETS_DIR" ]; then
+      for category_dir in "$CHEATSHEETS_DIR"/*/; do
         if [ -d "$category_dir" ]; then
           category=$(basename "$category_dir")
           for lang in en es; do

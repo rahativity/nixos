@@ -45,7 +45,7 @@
   # You can configure multiple monitors.
   # Inside the quotes, create a new line for each monitor.
 
-  extraMonitorSettings = "monitor = eDP-1, 1920x1200@60, 0x0, 1.20";
+  extraMonitorSettings = "monitor = , preferred, auto, 1";
 
   # Bar/Shell Settings
   # Choose between noctalia or waybar
