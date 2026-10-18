@@ -69,7 +69,7 @@ in
       killall # For Killing All Instances Of Programs
       libnotify # For Notifications
       lm_sensors # Used For Getting Hardware Temps
-      lolcat # Add Colors To Your Terminal Command Output
+      #lolcat # Add Colors To Your Terminal Command Output
       mpv # Incredible Video Player
       nixfmt # Nix Formatter
       nwg-displays # configure monitor configs via GUI
