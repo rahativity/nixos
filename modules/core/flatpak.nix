@@ -30,6 +30,13 @@
       "io.github.C_Yassin.FlameGet"
     ];
 
-    update.onActivation = true;
+    update.auto = {
+      enable = true;
+      onCalendar = "weekly";
+    };
+  };
+
+  systemd.services.flatpak-managed-install = {
+    restartIfChanged = false;
   };
 }
