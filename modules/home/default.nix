@@ -69,6 +69,7 @@ in {
       ./mpv.nix
       ./packages.nix
       ./cp.nix
+      ./skills.nix
     ]
     ++ (
       if helixEnable
@@ -98,7 +99,7 @@ in {
       ]
       else []
     )
-        ++ (
+    ++ (
       if vscodiumEnable
       then [./editors/vscodium.nix]
       else []
@@ -128,5 +129,4 @@ in {
       then [./obs-studio.nix]
       else []
     );
-
 }

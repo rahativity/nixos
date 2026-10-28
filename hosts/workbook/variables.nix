@@ -24,6 +24,8 @@
   zed-editorEnable = false;
   vscodiumEnable = false; # Open-source build of VSCode without telemetry
   antigravityEnable = true; # Google port of vscodium
+  aiSkillsEnable = true; # Academic & research AI skills for Copilot & Antigravity
+  academicToolsEnable = false; # Optional full TeX Live / Pandoc in user closure (prefer nix-shell skills/shell.nix)
   # Note: This is evil-helix with VIM keybindings by default
   helixEnable = false;
   #To install: Enable here, zcli rebuild, then run zcli doom install
