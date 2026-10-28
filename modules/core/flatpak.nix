@@ -3,7 +3,6 @@
     enable = true;
 
     extraPortals = with pkgs; [
-      xdg-desktop-portal-hyprland
       xdg-desktop-portal-gtk
     ];
 
@@ -16,8 +15,6 @@
         default = ["hyprland" "gtk"];
       };
     };
-
-    configPackages = [pkgs.hyprland];
   };
 
   services.flatpak = {
@@ -30,13 +27,6 @@
       "io.github.C_Yassin.FlameGet"
     ];
 
-    update.auto = {
-      enable = true;
-      onCalendar = "weekly";
-    };
-  };
-
-  systemd.services.flatpak-managed-install = {
-    restartIfChanged = false;
+    update.onActivation = true;
   };
 }
