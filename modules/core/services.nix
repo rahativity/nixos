@@ -9,13 +9,12 @@
     #mako.enable = true;
     cloudflare-warp.enable = false;
 
-
     openssh = {
-      enable = true; # Enable SSH
+      enable = false; # Enable SSH
       settings = {
         PermitRootLogin = "no"; # Prevent root from SSH login
-        PasswordAuthentication = true; #Users can SSH using kb and password
-        KbdInteractiveAuthentication = true;
+        PasswordAuthentication = false; # Disable password authentication
+        KbdInteractiveAuthentication = false;
       };
       ports = [22];
     };

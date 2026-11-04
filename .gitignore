@@ -1,0 +1,22 @@
+# Secrets and private credentials
+*secret*
+*.key
+*.pem
+*.age
+*.priv
+.env
+.env.*
+
+# Backup files
+*.backup
+*.bak
+*~
+
+# Nix build outputs
+result
+result-*
+
+# Local editor and tooling state
+.direnv/
+.cache/
+

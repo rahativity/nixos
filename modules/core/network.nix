@@ -14,16 +14,16 @@ in {
     firewall = {
       enable = true;
       allowedTCPPorts = [
-        22
-        80
-        443
-        59010
-        59011
-        8080
+        # 22    # SSH
+        # 80    # HTTP
+        # 443   # HTTPS
+        # 59010 # Local file transfer
+        # 59011 # Local file transfer
+        # 8080  # Web dev server
       ];
       allowedUDPPorts = [
-        59010
-        59011
+        # 59010 # Local file transfer
+        # 59011 # Local file transfer
       ];
     };
   };
