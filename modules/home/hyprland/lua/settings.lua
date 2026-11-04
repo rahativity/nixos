@@ -89,8 +89,13 @@ hl.config({
 })
 
 hl.config({
-  misc = {
+  layers = {
     layers_hog_keyboard_focus = true,
+  },
+})
+
+hl.config({
+  misc = {
     initial_workspace_tracking = 0,
     mouse_move_enables_dpms = true,
     key_press_enables_dpms = true,
@@ -112,7 +117,6 @@ hl.config({
     default_split_ratio = 1.0,
     split_bias = 0,
     precise_mouse_move = false,
-    special_scale_factor = 0.8,
   },
 })
 

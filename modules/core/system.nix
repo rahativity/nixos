@@ -33,5 +33,11 @@ in {
     ZANEYOS = "true";
   };
   console.keyMap = "${consoleKeyMap}";
+
+  # Fast shutdown: prevent stubborn services from hanging system shutdown for 90 seconds
+  systemd.settings.Manager = {
+    DefaultTimeoutStopSec = "10s";
+  };
+
   system.stateVersion = "23.11"; # Do not change!
 }
