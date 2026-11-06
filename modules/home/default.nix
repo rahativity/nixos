@@ -70,6 +70,7 @@ in {
       ./packages.nix
       ./cp.nix
       ./skills.nix
+      ./gemini.nix
     ]
     ++ (
       if helixEnable
