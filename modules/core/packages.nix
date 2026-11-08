@@ -49,7 +49,7 @@ in {
     ++ [
       alejandra # nix formatter
       #appimage-run # Needed For AppImage Support
-      brave # Brave Browser
+      #brave # Brave Browser (removed from nixpkgs)
       brightnessctl # For Screen Brightness Control
       duf # Utility For Viewing Disk Usage In Terminal
       dysk # Disk space util nice formattting
