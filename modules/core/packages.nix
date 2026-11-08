@@ -3,21 +3,18 @@
   pkgs,
   host,
   ...
-}:
-let
+}: let
   vars = import ../../hosts/${host}/variables.nix;
   inherit (vars) barChoice;
   # Noctalia-specific packages
   noctaliaPkgs =
-    if barChoice == "noctalia" then
-      with pkgs;
-      [
+    if barChoice == "noctalia"
+    then
+      with pkgs; [
         matugen # color palette generator needed for noctalia-shell
       ]
-    else
-      [ ];
-in
-{
+    else [];
+in {
   programs = {
     neovim = {
       enable = true;
@@ -41,10 +38,9 @@ in
   };
 
   nixpkgs.config.allowUnfree = true;
-  nixpkgs.config.permittedInsecurePackages = [ "openssl-1.1.1w" ];
+  nixpkgs.config.permittedInsecurePackages = ["openssl-1.1.1w"];
 
-  environment.systemPackages =
-    with pkgs;
+  environment.systemPackages = with pkgs;
     [
       awww
       inputs.synfetch.packages.${pkgs.stdenv.hostPlatform.system}.default
@@ -125,5 +121,13 @@ in
       #waydroid # Android container for Linux
       qbittorrent # BitTorrent client
       guvcview # GTK webcam capture and viewing tool
+      airgorah # GUI-based wireless network security auditing tool
+      aircrack-ng # Complete 802.11 wireless auditing toolset (monitoring, capture, analysis)
+      iw # Modern CLI tool for wireless device configuration (nl80211)
+      wirelesstools # Legacy wireless interface utilities (iwconfig, iwlist, etc.)
+      hashcat # Accelerated hash auditing and password recovery utility
+      hcxdumptool # Captures raw 802.11 frames and PMKID/EAPOL data
+      hcxtools # Converts captured packets (.cap/.pcapng) to hash formats for hashcat
+      xterm # Terminal emulator spawned by GUI/scripts for monitor windows
     ];
 }
