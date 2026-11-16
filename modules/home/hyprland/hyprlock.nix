@@ -1,10 +1,13 @@
 {
   config,
   username,
+  zaneyos ? {},
   ...
-}: {
+}: let
+  isNoctalia = (zaneyos.barChoice or "") == "noctalia";
+in {
   programs.hyprlock = {
-    enable = true;
+    enable = !isNoctalia;
     settings = {
       general = {
         disable_loading_bar = true;

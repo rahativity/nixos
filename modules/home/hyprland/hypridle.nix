@@ -1,4 +1,14 @@
-{...}: {
+{
+  pkgs,
+  zaneyos ? {},
+  ...
+}: let
+  isNoctalia = (zaneyos.barChoice or "") == "noctalia";
+  lockCmd =
+    if isNoctalia
+    then "${pkgs.noctalia}/bin/noctalia msg session lock"
+    else "${pkgs.hyprlock}/bin/hyprlock";
+in {
   services = {
     hypridle = {
       enable = true;
@@ -7,12 +17,12 @@
         general = {
           after_sleep_cmd = "hyprctl dispatch dpms on";
           ignore_dbus_inhibit = false;
-          lock_cmd = "hyprlock";
+          lock_cmd = lockCmd;
         };
         listener = [
           {
             timeout = 900;
-            on-timeout = "hyprlock";
+            on-timeout = lockCmd;
           }
           {
             timeout = 1200;

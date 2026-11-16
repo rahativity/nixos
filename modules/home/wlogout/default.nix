@@ -1,4 +1,15 @@
-{config, ...}: {
+{
+  pkgs,
+  config,
+  zaneyos ? {},
+  ...
+}: let
+  isNoctalia = (zaneyos.barChoice or "") == "noctalia";
+  lockCmd =
+    if isNoctalia
+    then "sleep 1; ${pkgs.noctalia}/bin/noctalia msg session lock"
+    else "sleep 1; ${pkgs.hyprlock}/bin/hyprlock";
+in {
   programs.wlogout = {
     enable = true;
     layout = [
@@ -28,7 +39,7 @@
       }
       {
         "label" = "lock";
-        "action" = "sleep 1; hyprlock";
+        "action" = lockCmd;
         "text" = "Lock";
         "keybind" = "l";
       }
