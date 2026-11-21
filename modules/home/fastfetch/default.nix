@@ -12,13 +12,16 @@
       };
 
       logo = {
-        source = ./nixos.png;
-        type = "kitty-direct";
-        height = 10;
-        width = 20;
+        source = "NixOS";
+        type = "builtin";
+        color = {
+          "1" = "magenta";
+          "2" = "cyan";
+        };
         padding = {
-          top = 2;
+          top = 1;
           left = 2;
+          right = 2;
         };
       };
 
